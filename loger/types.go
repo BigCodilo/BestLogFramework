@@ -10,10 +10,14 @@ func init(){
 }
 
 type BestLog struct{
+	//Если true то уровень инфо будет работать
 	IsInfo bool
+	//Если true то уровень дебаг будет работать
 	IsDebug bool
+	//Путь к файлу в который пишутся логи, если путь не установлен твывод будет в консоль
 	InfoPath string
 	DebugPath string
+	//Файлы в которе пишутся логи
 	infoFile *os.File
 	debugFile *os.File
 }

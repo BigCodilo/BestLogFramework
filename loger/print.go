@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-
+//Логирует уровня инфо
 func (blog BestLog) Info(data...interface{}) error{
 	if blog.IsInfo{
 		err := blog.infoPrintln(data)
@@ -20,6 +20,7 @@ func (blog BestLog) Info(data...interface{}) error{
 	return nil
 }
 
+//Логирует уровень дебаг
 func (blog BestLog) Debug(data...interface{}) error{
 	if blog.IsDebug{
 		err := blog.debugPrintln(data)
@@ -32,6 +33,7 @@ func (blog BestLog) Debug(data...interface{}) error{
 	return nil
 }
 
+//Все включенные уровни логирования - выводит
 func (blog BestLog) PrintLogs(data...interface{}) error{
 	if blog.IsDebug{
 		err := blog.debugPrintln(data)
