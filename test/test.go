@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	blog "github.com/BigCodilo/BestLogFramework/loger"
 	"github.com/gorilla/mux"
 	"net/http"
@@ -10,15 +9,12 @@ import (
 var Loger blog.BestLog
 
 func main(){
-	var err error
-	Loger = blog.BestLog{}
-	Loger.OnInfo()
-	//Loger.OnDebug()
-	//err = Loger.SetDebugPath("ddeebug")
-	if err != nil{
-		fmt.Println(err)
-	}
 
+
+	Loger = blog.NewBestLog()
+	Loger.LInfo.TurnOn()
+	Loger.LDebug.TurnOn()
+	Loger.LDebug.SetFilePath("debugishe")
 	defer Loger.CloseFiles()
 	StartServer()
 }
