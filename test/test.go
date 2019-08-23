@@ -1,44 +1,29 @@
 package main
 
 import (
-	"fmt"
 	blog "github.com/BigCodilo/BestLogFramework/loger"
 	"github.com/gorilla/mux"
+	"log"
 	"net/http"
-	"reflect"
 )
 
 var Loger blog.BestLog
 
 func main(){
-
-
 	Loger = blog.NewBestLog()
-	Loger.Info.TurnOn()
-	Loger.Fatal.TurnOn()
 	Loger.Error.TurnOn()
-	fmt.Println("here")
-	Loger.Fatal.Print("Fataaaaaweewwfal", reflect.TypeOf(Loger.Fatal.Stream).String())
-	Loger.Fatal.SetFilePath("FatalFile.csv")
-	Loger.Debug.TurnOn()
-	fmt.Println("here")
-	Loger.Debug.SetFilePath("debugishe")
-	Loger.Fatal.Print("Fataaaaaal", reflect.TypeOf(Loger.Fatal.Stream).String())
-	fmt.Println("here")
-	//Loger.CloseFiles()
+	Loger.Error.TurnOnCache()
+	Loger.Error.SetFilePath("ErrorFileForLoging")
 	StartServer()
 }
 
 func StartServer(){
 	r := mux.NewRouter()
 	r.HandleFunc("/", func (w http.ResponseWriter, r *http.Request){
-		//fmt.Println(os.Getenv("BLOG_INFO_LEVEL"))
-		//Loger.PrintAll("jopa", "chlen", 7324)
-		Loger.Info.Print("PisaPisa")
-		Loger.Debug.Print("111111111")
-		Loger.Fatal.Print("Fataaaaaal", reflect.TypeOf(Loger.Fatal.Stream).String())
+		Loger.Error.PrintWithCache("jewdnkeiwnefjneoifnaliuaeflauhfluei")
 		w.Write([]byte("hello"))
 	})
 	http.Handle("/", r)
-	http.ListenAndServe(":1234", nil)
+	log.Fatal(http.ListenAndServe(":1234", nil))
 }
+
