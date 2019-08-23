@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	blog "github.com/BigCodilo/BestLogFramework/loger"
 	"github.com/gorilla/mux"
 	"net/http"
@@ -16,11 +17,14 @@ func main(){
 	Loger.Info.TurnOn()
 	Loger.Fatal.TurnOn()
 	Loger.Error.TurnOn()
+	fmt.Println("here")
 	Loger.Fatal.Print("Fataaaaaweewwfal", reflect.TypeOf(Loger.Fatal.Stream).String())
 	Loger.Fatal.SetFilePath("FatalFile.csv")
 	Loger.Debug.TurnOn()
+	fmt.Println("here")
 	Loger.Debug.SetFilePath("debugishe")
 	Loger.Fatal.Print("Fataaaaaal", reflect.TypeOf(Loger.Fatal.Stream).String())
+	fmt.Println("here")
 	//Loger.CloseFiles()
 	StartServer()
 }

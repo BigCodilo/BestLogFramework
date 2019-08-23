@@ -121,7 +121,7 @@ func (level *LogLevel) OpenFile() error{
 	return nil
 }
 
-func (level *LogLevel) SetStream(stream io.Writer){
+func (level *LogLevel) SetStreamOutput(stream io.Writer){
 	fmt.Println(reflect.TypeOf(level.Stream).String())
 	level.Stream = stream
 }
