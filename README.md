@@ -10,7 +10,7 @@
     Loger.PrintLog("jopa", "chlen", 7324) // print all turned on level
 
 ```
- If path to files didn't set, logs will print in console
+ If path to files didn't set, logs will print in std.Out
  
  **Levels:**
  

@@ -14,6 +14,7 @@ func main(){
 	Loger = blog.NewBestLog()
 	Loger.Info.TurnOn()
 	Loger.Fatal.TurnOn()
+	Loger.Error.TurnOn()
 	Loger.Fatal.SetFilePath("FatalFile.csv")
 	Loger.Debug.TurnOn()
 	Loger.Debug.SetFilePath("debugishe")
