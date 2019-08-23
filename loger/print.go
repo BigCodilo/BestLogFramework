@@ -3,7 +3,6 @@ package loger
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	"reflect"
 	"time"
 )
@@ -53,10 +52,6 @@ func (level *LogLevel) println(data interface{}) error{
 	}
 	logString := string(logBinary)
 
-	if level.GetFilePath() == ""{
-		fmt.Println(logString)
-		return nil
-	}
 	_, err = level.Stream.Write([]byte(logString + "\n"))
 	if err != nil{
 		return err

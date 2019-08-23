@@ -47,18 +47,23 @@ func NewBestLog() BestLog{
 	return BestLog{
 		Debug: &LogLevel{
 			LevelName: "DEBUG",
+			Stream: os.Stdout,
 		},
 		Info:  &LogLevel{
 			LevelName: "INFO",
+			Stream: os.Stdout,
 		},
 		Warn: &LogLevel{
 			LevelName: "WARN",
+			Stream: os.Stdout,
 		},
 		Error: &LogLevel{
 			LevelName: "ERROR",
+			Stream: os.Stdout,
 		},
 		Fatal: &LogLevel{
 			LevelName: "FATAL",
+			Stream: os.Stdout,
 		},
 	}
 }
@@ -117,5 +122,6 @@ func (level *LogLevel) OpenFile() error{
 }
 
 func (level *LogLevel) SetStream(stream io.Writer){
+	fmt.Println(reflect.TypeOf(level.Stream).String())
 	level.Stream = stream
 }
