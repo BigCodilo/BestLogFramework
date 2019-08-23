@@ -14,10 +14,10 @@ func main(){
 	Loger = blog.NewBestLog()
 	Loger.Info.TurnOn()
 	Loger.Fatal.TurnOn()
-	Loger.Fatal.SetFilePath("FatalFile")
+	Loger.Fatal.SetFilePath("FatalFile.csv")
 	Loger.Debug.TurnOn()
 	Loger.Debug.SetFilePath("debugishe")
-	defer Loger.CloseFiles()
+	//Loger.CloseFiles()
 	StartServer()
 }
 
@@ -27,7 +27,7 @@ func StartServer(){
 		//fmt.Println(os.Getenv("BLOG_INFO_LEVEL"))
 		Loger.PrintAll("jopa", "chlen", 7324)
 		Loger.Info.Print("PisaPisa")
-		Loger.Debug.Print("NewTestDebug")
+		Loger.Debug.Print("111111111")
 		w.Write([]byte("hello"))
 	})
 	http.Handle("/", r)

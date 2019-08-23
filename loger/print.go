@@ -24,41 +24,25 @@ func (level LogLevel) Print(data...interface{}) error{
 //Все включенные уровни логирования - запись
 func (blog BestLog) PrintAll(data...interface{}) error{
 	if blog.Debug.TurnedOn{
-		err := blog.Debug.println(data)
-		if err != nil {
-			return err
-		}
+		blog.Debug.println(data)
 	}
 	if blog.Info.TurnedOn{
-		err := blog.Info.println(data)
-		if err != nil {
-			return err
-		}
+		blog.Info.println(data)
 	}
 	if blog.Warn.TurnedOn{
-		err := blog.Warn.println(data)
-		if err != nil {
-			return err
-		}
+		blog.Warn.println(data)
 	}
 	if blog.Error.TurnedOn{
-		err := blog.Error.println(data)
-		if err != nil {
-			return err
-		}
+		blog.Error.println(data)
 	}
 	if blog.Fatal.TurnedOn{
-		err := blog.Fatal.println(data)
-		if err != nil {
-			return err
-		}
+		blog.Fatal.println(data)
 	}
 	return nil
 }
 
 //Запись в уровень
 func (level *LogLevel) println(data interface{}) error{
-
 	logStruct := NewLogStruct()
 	logStruct.Level = level.LevelName
 	logStruct.Data = data
@@ -73,7 +57,7 @@ func (level *LogLevel) println(data interface{}) error{
 		fmt.Println(logString)
 		return nil
 	}
-	_, err = level.File.WriteString(logString + "\n")
+	_, err = level.Stream.Write([]byte(logString + "\n"))
 	if err != nil{
 		return err
 	}
