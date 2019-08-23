@@ -8,6 +8,7 @@
     Loger.Debug.SetFilePath("debugishe") //Set path to save logs
     Loger.Debug("params") // print debug level (if it included)
     Loger.PrintLog("jopa", "chlen", 7324) // print all turned on level
+    Loger.SetStreamOutput(os.Writer) //set outputb stramm
 
 ```
  If path to files didn't set, logs will print in std.Out
