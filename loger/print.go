@@ -9,7 +9,7 @@ import (
 
 //Логирует уровня инфо
 func (blog BestLog) Info(data...interface{}) error{
-	if blog.IsInfo{
+	if blog.LInfo.TurnedOn{
 		err := blog.infoPrintln(data)
 		if err != nil {
 			return err
@@ -22,7 +22,7 @@ func (blog BestLog) Info(data...interface{}) error{
 
 //Логирует уровень дебаг
 func (blog BestLog) Debug(data...interface{}) error{
-	if blog.IsDebug{
+	if blog.LDebug.TurnedOn{
 		err := blog.debugPrintln(data)
 		if err != nil {
 			return err
@@ -35,13 +35,13 @@ func (blog BestLog) Debug(data...interface{}) error{
 
 //Все включенные уровни логирования - выводит
 func (blog BestLog) PrintLogs(data...interface{}) error{
-	if blog.IsDebug{
+	if blog.LDebug.TurnedOn{
 		err := blog.debugPrintln(data)
 		if err != nil {
 			return err
 		}
 	}
-	if blog.IsInfo{
+	if blog.LInfo.TurnedOn{
 		err := blog.infoPrintln(data)
 		if err != nil {
 			return err
@@ -60,7 +60,7 @@ func (blog BestLog) infoPrintln(data interface{}) error{
 		fmt.Println(dataToPrint)
 		return nil
 	}
-	_, err = blog.infoFile.WriteString(dataToPrint + "\n")
+	_, err = blog.LInfo.File.WriteString(dataToPrint + "\n")
 	if err != nil{
 		return err
 	}
@@ -77,7 +77,7 @@ func (blog BestLog) debugPrintln(data interface{}) error{
 		fmt.Println(dataToPrint)
 		return nil
 	}
-	_, err = blog.debugFile.WriteString(dataToPrint + "\n")
+	_, err = blog.LDebug.File.WriteString(dataToPrint + "\n")
 	if err != nil{
 		return err
 	}

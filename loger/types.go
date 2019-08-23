@@ -4,89 +4,109 @@ import (
 	"os"
 )
 
-func init(){
-	os.Setenv("BLOG_INFO_LEVEL", "true")
-	os.Setenv("BLOG_DEBUG_LEVEL", "false")
+
+type LogLevel struct{
+	Level string
+	TurnedOn bool
+	FilePath string
+	File *os.File
 }
 
 type BestLog struct{
-	//Если true то уровень инфо будет работать
-	IsInfo bool
-	//Если true то уровень дебаг будет работать
-	IsDebug bool
-	//Путь к файлу в который пишутся логи, если путь не установлен твывод будет в консоль
-	InfoPath string
-	DebugPath string
-	//Файлы в которе пишутся логи
-	infoFile *os.File
-	debugFile *os.File
+	LInfo *LogLevel
+	LDebug *LogLevel
 }
 
-//NewBestLog - return new logger with path
-func NewBestLog(isInfo, isDebug bool, infoPath ,debugPath string) (BestLog, error){
-	blog := BestLog{}
-	err := blog.SetInfoPath(infoPath)
-	if err != nil{
-		return BestLog{}, err
+//------------------------------------END STRUCTS----------------------//
+
+func NewBestLog() (BestLog){
+	return BestLog{
+		LInfo:  &LogLevel{
+			Level: "INFO",
+		},
+		LDebug: &LogLevel{
+			Level: "DEBUG",
+		},
 	}
-	err = blog.SetDebugPath(debugPath)
-	if err != nil{
-		return BestLog{}, err
-	}
-	blog.IsInfo = isInfo
-	blog.IsDebug = isDebug
-	return blog, nil
 }
 
 //Close - close opened files for printing
 func (blog *BestLog) CloseFiles(){
-	if blog.infoFile != nil{
-		blog.infoFile.Close()
+	if blog.LInfo.File != nil{
+		blog.LInfo.File.Close()
 	}
-	if blog.debugFile != nil{
-		blog.debugFile.Close()
+	if blog.LDebug.File != nil{
+		blog.LDebug.File.Close()
 	}
 }
 
 
 //---------------------------------------------------------------------INFO---------------------------------------------------//
 
-//OnInfo turn on info level
-func (blog *BestLog) OnInfo(){
-	blog.IsInfo = true
+func (level *LogLevel) TurnOn(){
+	level.TurnedOn = true
 }
 
-//OffInfo turn off info level
-func (blog *BestLog) OffInfo(){
-	blog.IsInfo = false
+func (level *LogLevel) TurnOff(){
+	level.TurnedOn = false
 }
 
-//Setter for info path
-func (blog *BestLog)SetInfoPath(path string) error{
-	blog.InfoPath = path
-	err := blog.OpenInfoFile()
+////OnInfo turn on info level
+//func (blog *BestLog) OnInfo(){
+//	blog.LInfo.TurnedOn = true
+//}
+//
+////OffInfo turn off info level
+//func (blog *BestLog) OffInfo(){
+//	blog.LInfo.TurnedOn = false
+//}
+
+func (level *LogLevel) SetFilePath(path string) error{
+	level.FilePath = path
+	err := level.OpenFile()
 	return err
 }
 
+//Setter for info path
+//func (blog *BestLog)SetInfoPath(path string) error{
+//	blog.LInfo.FilePath = path
+//	err := blog.OpenInfoFile()
+//	return err
+//}
+
 //Getter for info path
 func (blog BestLog)GetInfoPath() string{
-	return blog.InfoPath
+	return blog.LInfo.FilePath
 }
 
-//Open info file by inputing path
-func (blog *BestLog) OpenInfoFile() error{
+func (level *LogLevel) OpenFile() error{
 	var err error
-	blog.infoFile, err = os.OpenFile(blog.InfoPath, os.O_WRONLY|os.O_APPEND, os.ModeAppend)
+	level.File, err = os.OpenFile(level.FilePath, os.O_WRONLY|os.O_APPEND, os.ModeAppend)
 	if err != nil{
-		file, err := os.Create(blog.InfoPath)
+		file, err := os.Create(level.FilePath)
 		if err != nil{
 			return err
 		}
 		defer file.Close()
-		blog.infoFile, err = os.OpenFile(blog.InfoPath, os.O_WRONLY|os.O_APPEND, os.ModeAppend)
+		level.File, err = os.OpenFile(level.FilePath, os.O_WRONLY|os.O_APPEND, os.ModeAppend)
 	}
 	return nil
 }
+
+////Open info file by inputing path
+//func (blog *BestLog) OpenInfoFile() error{
+//	var err error
+//	blog.LInfo.File, err = os.OpenFile(blog.LInfo.FilePath, os.O_WRONLY|os.O_APPEND, os.ModeAppend)
+//	if err != nil{
+//		file, err := os.Create(blog.LInfo.FilePath)
+//		if err != nil{
+//			return err
+//		}
+//		defer file.Close()
+//		blog.LInfo.File, err = os.OpenFile(blog.LInfo.FilePath, os.O_WRONLY|os.O_APPEND, os.ModeAppend)
+//	}
+//	return nil
+//}
 
 
 
@@ -94,37 +114,37 @@ func (blog *BestLog) OpenInfoFile() error{
 
 //OnDebug turn on debug level
 func (blog *BestLog) OnDebug(){
-	blog.IsDebug = true
+	blog.LDebug.TurnedOn = true
 }
 
 //OffDebug turn on debug level
 func (blog *BestLog) OffDebug(){
-	blog.IsDebug = false
+	blog.LDebug.TurnedOn = false
 }
 
 //Setter for info file path
 func (blog *BestLog)SetDebugPath(path string) error{
-	blog.DebugPath = path
+	blog.LDebug.FilePath = path
 	err := blog.OpenDebugFile()
 	return err
 }
 
 //Getter for info file path
 func (blog BestLog)GetDebugPath() string{
-	return blog.DebugPath
+	return blog.LDebug.FilePath
 }
 
 //Open debug file by inputing path
 func (blog *BestLog) OpenDebugFile() error{
 	var err error
-	blog.debugFile, err = os.OpenFile(blog.DebugPath, os.O_WRONLY|os.O_APPEND, os.ModeAppend)
+	blog.LDebug.File, err = os.OpenFile(blog.LDebug.FilePath, os.O_WRONLY|os.O_APPEND, os.ModeAppend)
 	if err != nil{
-		file, err := os.Create(blog.DebugPath)
+		file, err := os.Create(blog.LDebug.FilePath)
 		if err != nil{
 			return err
 		}
 		defer file.Close()
-		blog.debugFile, err = os.OpenFile(blog.DebugPath, os.O_WRONLY|os.O_APPEND, os.ModeAppend)
+		blog.LDebug.File, err = os.OpenFile(blog.LDebug.FilePath, os.O_WRONLY|os.O_APPEND, os.ModeAppend)
 	}
 	return nil
 }
