@@ -11,7 +11,7 @@ import (
 type FromPrintAll bool
 
 type LogCache struct{
-	Logs []string
+	Logs []LogStruct
 	SleepTime time.Duration
 	TurnedOn bool
 }

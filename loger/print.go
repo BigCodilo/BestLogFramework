@@ -74,10 +74,13 @@ func (level *LogLevel) PrintWithCache(data...interface{}) error{
 //Раз в какой-то промежуток времени выводит все записи с кеша и очищает его
 func (level *LogLevel)UnloadCache(){
 	for level.Cache.TurnedOn{
+		logsArray := []LogStruct{}
 		for _, v := range level.Cache.Logs{
-			level.Stream.Write([]byte(v))
+			logsArray = append(logsArray, v)
 		}
-		level.Cache.Logs = []string{}
+		logeArrayJSON, _ := json.Marshal(logsArray)
+		level.Stream.Write(logeArrayJSON)
+		level.Cache.Logs = []LogStruct{}
 		time.Sleep(level.Cache.SleepTime)
 	}
 }
@@ -88,11 +91,6 @@ func (cache *LogCache) SaveToCache(data interface{}, levelName string) error{
 	logStruct.Level = levelName
 	logStruct.Data = data
 	logStruct.Time = time.Now().Format(time.RFC3339)
-	logBinary, err := json.Marshal(logStruct)
-	if err != nil{
-		return err
-	}
-	logString := string(logBinary) + "\n"
-	cache.Logs = append(cache.Logs, logString)
+	cache.Logs = append(cache.Logs, logStruct)
 	return nil
 }
