@@ -25,7 +25,7 @@ func StartServer(){
 		//fmt.Println(os.Getenv("BLOG_INFO_LEVEL"))
 		Loger.PrintLogs("jopa", "chlen", 7324)
 		Loger.Info("PisaPisa")
-		Loger.Debug("PisaPisaDebug")
+		Loger.Debug("NewTestDebug")
 		w.Write([]byte("hello"))
 	})
 	http.Handle("/", r)

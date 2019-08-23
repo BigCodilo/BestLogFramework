@@ -56,7 +56,7 @@ func (blog BestLog) infoPrintln(data interface{}) error{
 	if err != nil{
 		return err
 	}
-	if blog.GetInfoPath() == ""{
+	if blog.LInfo.GetFilePath() == ""{
 		fmt.Println(dataToPrint)
 		return nil
 	}
@@ -73,7 +73,7 @@ func (blog BestLog) debugPrintln(data interface{}) error{
 	if err != nil{
 		return err
 	}
-	if blog.GetDebugPath() == ""{
+	if blog.LDebug.GetFilePath() == ""{
 		fmt.Println(dataToPrint)
 		return nil
 	}
