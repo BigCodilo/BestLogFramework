@@ -4,44 +4,74 @@ import (
 	"os"
 )
 
+type FromPrintAll bool
+
+type LogStruct struct{
+	Time string
+	Level string
+	Data interface{}
+}
 
 type LogLevel struct{
-	Level string
+	LevelName string
 	TurnedOn bool
 	FilePath string
 	File *os.File
 }
 
 type BestLog struct{
-	LInfo *LogLevel
-	LDebug *LogLevel
+	Debug *LogLevel
+	Info *LogLevel
+	Warn *LogLevel
+	Error *LogLevel
+	Fatal *LogLevel
 }
 
 //------------------------------------END STRUCTS----------------------//
 
-func NewBestLog() (BestLog){
+func NewLogStruct() LogStruct{
+	return LogStruct{}
+}
+
+func NewBestLog() BestLog{
 	return BestLog{
-		LInfo:  &LogLevel{
-			Level: "INFO",
+		Debug: &LogLevel{
+			LevelName: "DEBUG",
 		},
-		LDebug: &LogLevel{
-			Level: "DEBUG",
+		Info:  &LogLevel{
+			LevelName: "INFO",
+		},
+		Warn: &LogLevel{
+			LevelName: "WARN",
+		},
+		Error: &LogLevel{
+			LevelName: "ERROR",
+		},
+		Fatal: &LogLevel{
+			LevelName: "FATAL",
 		},
 	}
 }
 
 //Close - close opened files for printing
 func (blog *BestLog) CloseFiles(){
-	if blog.LInfo.File != nil{
-		blog.LInfo.File.Close()
+	if blog.Debug.File != nil{
+		blog.Debug.File.Close()
 	}
-	if blog.LDebug.File != nil{
-		blog.LDebug.File.Close()
+	if blog.Info.File != nil{
+		blog.Info.File.Close()
+	}
+	if blog.Warn.File != nil{
+		blog.Warn.File.Close()
+	}
+	if blog.Error.File != nil{
+		blog.Error.File.Close()
+	}
+	if blog.Fatal.File != nil{
+		blog.Fatal.File.Close()
 	}
 }
 
-
-//---------------------------------------------------------------------INFO---------------------------------------------------//
 
 func (level *LogLevel) TurnOn(){
 	level.TurnedOn = true

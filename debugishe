@@ -20,3 +20,70 @@
 2019-08-23T10:53:27+03:00: DEBUG: ["NewTestDebug"]
 2019-08-23T10:55:02+03:00: DEBUG: ["jopa","chlen",7324]
 2019-08-23T10:55:02+03:00: DEBUG: ["NewTestDebug"]
+2019-08-23T11:02:13+03:00: INFO: ["jopa","chlen",7324]
+2019-08-23T11:02:13+03:00: INFO: ["NewTestDebug"]
+2019-08-23T11:02:13+03:00: INFO: ["jopa","chlen",7324]
+2019-08-23T11:02:13+03:00: INFO: ["NewTestDebug"]
+2019-08-23T11:02:13+03:00: INFO: ["jopa","chlen",7324]
+2019-08-23T11:02:13+03:00: INFO: ["NewTestDebug"]
+["jopa","chlen",7324]
+["NewTestDebug"]
+["jopa","chlen",7324]
+["NewTestDebug"]
+["jopa","chlen",7324]
+["NewTestDebug"]
+["jopa","chlen",7324]
+["NewTestDebug"]
+["jopa","chlen",7324]
+["NewTestDebug"]
+{"Time":"2019-08-23T11:12:05+03:00","Level":"DEBUG","Data":["jopa","chlen",7324]}
+{"Time":"2019-08-23T11:12:05+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:12:05+03:00","Level":"DEBUG","Data":["jopa","chlen",7324]}
+{"Time":"2019-08-23T11:12:05+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:12:43+03:00","Level":"DEBUG","Data":["jopa","chlen",7324]}
+{"Time":"2019-08-23T11:12:43+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:12:43+03:00","Level":"DEBUG","Data":["jopa","chlen",7324]}
+{"Time":"2019-08-23T11:12:43+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:22:01+03:00","Level":"DEBUG","Data":["jopa","chlen",7324]}
+{"Time":"2019-08-23T11:22:01+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:22:01+03:00","Level":"DEBUG","Data":["jopa","chlen",7324]}
+{"Time":"2019-08-23T11:22:01+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:22:01+03:00","Level":"DEBUG","Data":["jopa","chlen",7324]}
+{"Time":"2019-08-23T11:22:01+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:26:22+03:00","Level":"DEBUG","Data":[["jopa","chlen",7324]]}
+{"Time":"2019-08-23T11:26:22+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:26:22+03:00","Level":"DEBUG","Data":[["jopa","chlen",7324]]}
+{"Time":"2019-08-23T11:26:22+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:26:22+03:00","Level":"DEBUG","Data":[["jopa","chlen",7324]]}
+{"Time":"2019-08-23T11:26:22+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:44:36+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:44:37+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:45:22+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:45:27+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:45:27+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:46:02+03:00","Level":"DEBUG","Data":[null]}
+{"Time":"2019-08-23T11:46:02+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:46:02+03:00","Level":"DEBUG","Data":[null]}
+{"Time":"2019-08-23T11:46:02+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:46:32+03:00","Level":"DEBUG","Data":[null]}
+{"Time":"2019-08-23T11:46:32+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:46:47+03:00","Level":"DEBUG","Data":[null]}
+{"Time":"2019-08-23T11:46:47+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:46:47+03:00","Level":"DEBUG","Data":[null]}
+{"Time":"2019-08-23T11:46:47+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:47:11+03:00","Level":"DEBUG","Data":[["jopa","chlen",7324]]}
+{"Time":"2019-08-23T11:47:11+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:50:05+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:50:05+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:50:32+03:00","Level":"DEBUG","Data":["jopa","chlen",7324]}
+{"Time":"2019-08-23T11:50:32+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:50:32+03:00","Level":"DEBUG","Data":["jopa","chlen",7324]}
+{"Time":"2019-08-23T11:50:32+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:52:37+03:00","Level":"DEBUG","Data":["jopa","chlen",7324]}
+{"Time":"2019-08-23T11:52:37+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:52:37+03:00","Level":"DEBUG","Data":["jopa","chlen",7324]}
+{"Time":"2019-08-23T11:52:37+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:53:31+03:00","Level":"DEBUG","Data":["jopa","chlen",7324]}
+{"Time":"2019-08-23T11:53:31+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
+{"Time":"2019-08-23T11:53:31+03:00","Level":"DEBUG","Data":["jopa","chlen",7324]}
+{"Time":"2019-08-23T11:53:31+03:00","Level":"DEBUG","Data":["NewTestDebug"]}
